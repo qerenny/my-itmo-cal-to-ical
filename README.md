@@ -16,12 +16,12 @@
    APP_PORT=35601
 
    docker run -d \
-   	--restart=unless-stopped \
-   	--name itmo_ical \
-   	-p=$APP_PORT:35601 \
-   	-e ITMO_ICAL_ISU_USERNAME=100000 \
-   	-e ITMO_ICAL_ISU_PASSWORD=XXXXXXXXXXXXX \
-   	ghcr.io/iburakov/my-itmo-ru-to-ical
+      --restart=unless-stopped \
+      --name itmo_ical \
+      -p=$APP_PORT:35601 \
+      -e ITMO_ICAL_ISU_USERNAME=100000 \
+      -e ITMO_ICAL_ISU_PASSWORD=XXXXXXXXXXXXX \
+      ghcr.io/iburakov/my-itmo-ru-to-ical
    ```
 
 2. Получить публичную ссылку на .ics:
