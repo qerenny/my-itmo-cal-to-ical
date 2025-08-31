@@ -32,7 +32,7 @@ RUN poetry install --only=main --no-root --no-cache
 
 FROM base as runner
 
-ARG UWSGI_VERSION=2.0.22
+ARG UWSGI_VERSION=2.0.25
 
 # uwsgi install, adapted from https://github.com/docker-library/python
 RUN set -ex \
@@ -46,7 +46,7 @@ RUN set -ex \
         libreadline-dev \
         libsqlite3-dev \
         libssl-dev \
-        libpcre3-dev \
+        libpcre2-dev \
         make \
         tcl-dev \
         tk-dev \
@@ -56,7 +56,7 @@ RUN set -ex \
     ' \
     && deps=' \
         libexpat1 \
-        libpcre3 \
+        libpcre2-8-0 \
     ' \
     && apt-get update && apt-get install -y $buildDeps $deps --no-install-recommends  && rm -rf /var/lib/apt/lists/* \
     && pip install uwsgi==${UWSGI_VERSION} \
@@ -73,7 +73,7 @@ COPY --from=poetry-deps --chown=appuser /app/.venv /app/.venv
 COPY --chown=appuser . .
 
 ENV PYTHONPATH=/app/src:$PYTHONPATH \
-    
+
     UWSGI_WSGI_FILE=src/app.py \
     UWSGI_VIRTUALENV=/app/.venv \
 
