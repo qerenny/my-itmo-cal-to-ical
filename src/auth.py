@@ -29,7 +29,7 @@ def get_code_challenge(code_verifier: str):
     return code_challenge.replace("=", "")  # remove base64 padding
 
 
-_FORM_ACTION_REGEX = re.compile(r'"registrationAction":\s*"(?P<action>https://id\.itmo\.ru/auth/realms/itmo/login-actions/authenticate\?[^"]*)"', re.DOTALL)
+_FORM_ACTION_REGEX = re.compile(rf'"loginAction":\s*"(?P<action>{re.escape(_PROVIDER)}[^"]*)"', re.DOTALL)
 
 
 @AsyncTTL(time_to_live=55 * 60, skip_args=1)
