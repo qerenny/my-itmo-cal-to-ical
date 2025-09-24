@@ -18,4 +18,5 @@ def build_calendar(events: Iterable[Event]):
 
 
 def calendar_to_ics_text(calendar: Calendar) -> str:
-    return "\n".join(map(str.strip, calendar))
+    return "\n".join(map(str.strip, calendar.serialize_iter()))
+

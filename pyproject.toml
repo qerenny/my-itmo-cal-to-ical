@@ -5,6 +5,10 @@ description = "A simple app exporting the scheudle from my.itmo.ru in iCalendar 
 authors = ["iburakov <speedwatson@gmail.com>"]
 license = "MIT"
 
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+
 [tool.poetry.dependencies]
 python = "^3.11"
 ics = "^0.7.2"
@@ -20,6 +24,7 @@ mypy = "^1.5.1"
 vulture = "^2.9.1"
 types-requests = "^2.31.0.3"
 types-python-dateutil = "^2.8.19.14"
+pytest = "^8.4.2"
 
 
 [build-system]
