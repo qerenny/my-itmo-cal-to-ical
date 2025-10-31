@@ -7,6 +7,8 @@ license = "MIT"
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]
+asyncio_mode = "auto"
+
 
 
 [tool.poetry.dependencies]
@@ -16,6 +18,8 @@ Flask = {extras = ["async"], version = "^2.3.3"}
 sentry-sdk = {extras = ["flask"], version = "^1.4.3"}
 aiohttp = "^3.8.5"
 async-cache = "^1.1.1"
+aioresponses = "^0.7.8"
+pytest-asyncio = "^1.2.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.0.291"
@@ -25,6 +29,7 @@ vulture = "^2.9.1"
 types-requests = "^2.31.0.3"
 types-python-dateutil = "^2.8.19.14"
 pytest = "^8.4.2"
+pytest-cov = "^7.0.0"
 
 
 [build-system]
